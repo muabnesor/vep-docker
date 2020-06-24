@@ -23,6 +23,8 @@ RUN chmod +x Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh
 RUN bash Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh -b -p /usr/miniconda3
 ENV PATH /usr/miniconda3/bin:$PATH 
 
+RUN conda install perl=5.26.2
 RUN conda install -c bioconda ensembl-vep=${VEP_VERSION}
 RUN perl usr/miniconda3/bin/vep_install -a p --PLUGINS StructuralVariantOverlap,SpliceAI
+
 
